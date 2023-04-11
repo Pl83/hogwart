@@ -24,8 +24,10 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
   // Événement déclenché lorsque la reconnaissance vocale détecte une nouvelle phrase
   recognition.onresult = (event) => {
     const speechToText = event.results[0][0].transcript;
-    outputDiv.textContent = speechToText;
+    //outputDiv.textContent = speechToText;
     if (speechToText.toLowerCase().includes('fla')) {
+      outputDiv.textContent = "INFLAMARE";
+      outputDiv.style.color = "red";
       let charged = document.getElementById("charged");
       charged.style.backgroundColor = "red";
       charged.style.borderColor = "red";
@@ -33,6 +35,8 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.display = "block";
     } 
     else if (speechToText.toLowerCase().includes('dis')) {
+      outputDiv.textContent = "DISPELLIUM";
+      outputDiv.style.color = "black";
       let inflamare = document.getElementById("inflamare");
       inflamare.style.display = "none";
       inflamare.style.animation = "none";
@@ -41,6 +45,8 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       dummyimg.style.animation = "none";
     } 
     else if (speechToText.toLowerCase().includes('lumos')) {
+      outputDiv.textContent = "LUMOS";
+      outputDiv.style.color = "white";
       let charged = document.getElementById("charged");
       charged.style.backgroundColor = "white";
       charged.style.borderColor = "white";
@@ -48,6 +54,8 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.display = "block";
     } 
     else if (speechToText.toLowerCase().includes('leviosa')) {
+      outputDiv.textContent = "LEVIOSA";
+      outputDiv.style.color = "purple";
       let charged = document.getElementById("charged");
       charged.style.backgroundColor = "purple";
       charged.style.borderColor = "purple";
