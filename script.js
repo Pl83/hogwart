@@ -9,6 +9,7 @@ window.addEventListener("mousemove", function(event) {
 });
 
 var dummy = document.getElementById("dummy");
+var scl = 1;
 
 
 // Récupération des éléments HTML
@@ -25,6 +26,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
   recognition.onresult = (event) => {
     const speechToText = event.results[0][0].transcript;
     //outputDiv.textContent = speechToText;
+    console.log(speechToText);
     if (speechToText.toLowerCase().includes('fla')) {
       outputDiv.textContent = "INFLAMARE";
       outputDiv.style.color = "red";
@@ -43,6 +45,8 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       dummy.style.animation = "none";
       let dummyimg = document.querySelector("#dummy > img");
       dummyimg.style.animation = "none";
+      scl = 1;
+      dummy.style.scale = scl;
     } 
     else if (speechToText.toLowerCase().includes('lumos')) {
       outputDiv.textContent = "LUMOS";
@@ -60,6 +64,24 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.backgroundColor = "purple";
       charged.style.borderColor = "purple";
       charged.style.boxShadow = "0 0 20px 10px rgba(255, 0, 255, 0.5)";
+      charged.style.display = "block";
+    }
+    else if (speechToText.toLowerCase().includes('amplifi')) {
+      outputDiv.textContent = "AMPLIFICATUM";
+      outputDiv.style.color = "green";
+      let charged = document.getElementById("charged");
+      charged.style.backgroundColor = "green";
+      charged.style.borderColor = "green";
+      charged.style.boxShadow = "0 0 20px 10px rgba(0, 255, 0, 0.5)";
+      charged.style.display = "block";
+    } 
+    else if (speechToText.toLowerCase().includes('reduc')) {
+      outputDiv.textContent = "REDUCTO";
+      outputDiv.style.color = "blue";
+      let charged = document.getElementById("charged");
+      charged.style.backgroundColor = "blue";
+      charged.style.borderColor = "blue";
+      charged.style.boxShadow = "0 0 20px 10px rgba(0, 0, 255, 0.5)";
       charged.style.display = "block";
     }
   };
@@ -96,6 +118,16 @@ dummy.addEventListener("click", function(event) {
     let dummyimg = document.querySelector("#dummy > img");
     dummy.style.animation = "leviosa 5s infinite linear";
     dummyimg.style.animation = "leviosa2 5s infinite linear";
+    charged.style.display = "none";
+    charged.style.backgroundColor = "transparent";
+  } else if (charged.style.display === "block" & charged.style.backgroundColor === "green") {
+    scl = scl + 1;
+    dummy.style.scale = scl;
+    charged.style.display = "none";
+    charged.style.backgroundColor = "transparent";
+  } else if (charged.style.display === "block" & charged.style.backgroundColor === "blue") {
+    scl = scl - 1;
+    dummy.style.scale = scl;
     charged.style.display = "none";
     charged.style.backgroundColor = "transparent";
   }
