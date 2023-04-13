@@ -94,20 +94,26 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
   };
 
   // Événement déclenché lorsque la dictée est terminée
-  recognition.onend = () => {
-    startBtn.disabled = false;
-  };
+  // recognition.onend = () => {
+  //   startBtn.disabled = false;
+  // };
 
-  // Événement déclenché lorsque l'utilisateur clique sur le bouton "Démarrer la dictée"
-  startBtn.addEventListener('click', () => {
-    startBtn.disabled = true;
+  startBtnRoom.addEventListener('click', () => { 
+    startBtnRoom.disabled = true;
     recognition.start();
-  });
+  })
+
+  // // Événement déclenché lorsque l'utilisateur clique sur le bouton "Démarrer la dictée"
+  // startBtn.addEventListener('click', () => {
+  //   startBtn.disabled = true;
+  //   recognition.start();
+  // });
   
 } else {
   // Si l'API Web Speech n'est pas supportée par le navigateur
   outputDiv.textContent = "Désolé, la reconnaissance vocale n'est pas supportée par votre navigateur.";
   startBtn.disabled = true;
+  startBtnRoom.disabled = true;
 }
 
 
