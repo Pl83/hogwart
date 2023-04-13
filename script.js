@@ -15,6 +15,7 @@ var scl = 1;
 // Récupération des éléments HTML
 const outputDiv = document.getElementById('output');
 const startBtn = document.getElementById('start-btn');
+const startBtnRoom = document.getElementById('start-btn-room');
 
 // Vérification de la compatibilité de l'API Web Speech
 if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
@@ -109,6 +110,12 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.boxShadow = "0 0 20px 10px rgba(0, 0, 0, 0.5)";
       charged.style.display = "block";
     }
+    else if (speechToText.toLowerCase().includes('anima')) {
+      alert("ANIMALERIS");
+    }
+  };
+  recognition.onend = () => { 
+    startBtnRoom.disabled = false;
   };
 
   // Événement déclenché lorsque la dictée est terminée
