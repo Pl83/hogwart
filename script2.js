@@ -9,6 +9,9 @@ window.addEventListener("mousemove", function(event) {
 });
 
 var dummy = document.getElementById("dummy");
+const hypogriffe = document.querySelector(".hypogriffe");
+console.log(hypogriffe);
+
 var scl = 1;
 
 
@@ -25,68 +28,23 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
 
   // Événement déclenché lorsque la reconnaissance vocale détecte une nouvelle phrase
   recognition.onresult = (event) => {
+    // je reset leur opacity afin de ne pas avoir plusieurs images qui s'affichent
+    document.querySelector(".hypogriffe").style.opacity = "0";
+    document.querySelector(".sombrale").style.opacity = "0";
+    document.querySelector(".basilic").style.opacity = "0";
+
     const speechToText = event.results[0][0].transcript;
     //outputDiv.textContent = speechToText;
     console.log(speechToText);
-    if (speechToText.toLowerCase().includes('fla')) {
-      outputDiv.textContent = "INFLAMARE";
-      outputDiv.style.color = "red";
-      let charged = document.getElementById("charged");
-      charged.style.backgroundColor = "red";
-      charged.style.borderColor = "red";
-      charged.style.boxShadow = "0 0 20px 10px rgba(255, 0, 0, 0.5)";
-      charged.style.display = "block";
-    } 
-    else if (speechToText.toLowerCase().includes('dis')) {
-      outputDiv.textContent = "DISPELLIUM";
-      outputDiv.style.color = "black";
-      let inflamare = document.getElementById("inflamare");
-      inflamare.style.display = "none";
-      inflamare.style.animation = "none";
-      dummy.style.animation = "none";
-      let dummyimg = document.querySelector("#dummy > img");
-      dummyimg.style.animation = "none";
-      scl = 1;
-      dummy.style.scale = scl;
-    } 
-    else if (speechToText.toLowerCase().includes('lumos')) {
-      outputDiv.textContent = "LUMOS";
-      outputDiv.style.color = "white";
-      let charged = document.getElementById("charged");
-      charged.style.backgroundColor = "white";
-      charged.style.borderColor = "white";
-      charged.style.boxShadow = "0 0 20px 10px rgba(255, 255, 255, 0.5)";
-      charged.style.display = "block";
-    } 
-    else if (speechToText.toLowerCase().includes('leviosa')) {
-      outputDiv.textContent = "LEVIOSA";
-      outputDiv.style.color = "purple";
-      let charged = document.getElementById("charged");
-      charged.style.backgroundColor = "purple";
-      charged.style.borderColor = "purple";
-      charged.style.boxShadow = "0 0 20px 10px rgba(255, 0, 255, 0.5)";
-      charged.style.display = "block";
-    }
-    else if (speechToText.toLowerCase().includes('amplifi')) {
-      outputDiv.textContent = "AMPLIFICATUM";
-      outputDiv.style.color = "green";
-      let charged = document.getElementById("charged");
-      charged.style.backgroundColor = "green";
-      charged.style.borderColor = "green";
-      charged.style.boxShadow = "0 0 20px 10px rgba(0, 255, 0, 0.5)";
-      charged.style.display = "block";
-    } 
-    else if (speechToText.toLowerCase().includes('reduc')) {
-      outputDiv.textContent = "REDUCTO";
-      outputDiv.style.color = "blue";
-      let charged = document.getElementById("charged");
-      charged.style.backgroundColor = "blue";
-      charged.style.borderColor = "blue";
-      charged.style.boxShadow = "0 0 20px 10px rgba(0, 0, 255, 0.5)";
-      charged.style.display = "block";
-    }
-    else if (speechToText.toLowerCase().includes('anima')) {
-      alert("ANIMALERIS");
+    if (speechToText.toLowerCase().includes("griff")) {
+      
+      document.querySelector(".hypogriffe").style.opacity = "1";
+    } else if (speechToText.toLowerCase().includes("somb")) {
+     
+      document.querySelector(".sombrale").style.opacity = "1";
+    } else if (speechToText.toLowerCase().includes("basili")) {
+     
+      document.querySelector(".basilic").style.opacity = "1";
     }
   };
   recognition.onend = () => { 
@@ -118,33 +76,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
 
 
 
-dummy.addEventListener("click", function(event) {
-  let charged = document.getElementById("charged");
-  if (charged.style.display === "block" && charged.style.backgroundColor === "red") {
-    let inflamare = document.getElementById("inflamare");
-    inflamare.style.display = "block";
-    charged.style.display = "none";
-    charged.style.backgroundColor = "transparent";
-  } else if (charged.style.display === "block" & charged.style.backgroundColor === "purple") {
-    let inflamare = document.getElementById("inflamare");
-    inflamare.style.animation = "leviosa 5s infinite linear";
-    let dummyimg = document.querySelector("#dummy > img");
-    dummy.style.animation = "leviosa 5s infinite linear";
-    dummyimg.style.animation = "leviosa2 5s infinite linear";
-    charged.style.display = "none";
-    charged.style.backgroundColor = "transparent";
-  } else if (charged.style.display === "block" & charged.style.backgroundColor === "green") {
-    scl = scl + 1;
-    dummy.style.scale = scl;
-    charged.style.display = "none";
-    charged.style.backgroundColor = "transparent";
-  } else if (charged.style.display === "block" & charged.style.backgroundColor === "blue") {
-    scl = scl - 1;
-    dummy.style.scale = scl;
-    charged.style.display = "none";
-    charged.style.backgroundColor = "transparent";
-  }
-});
+
 
 window.addEventListener("click", function(event) {
   let charged = document.getElementById("charged");
