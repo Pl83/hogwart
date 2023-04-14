@@ -30,27 +30,12 @@ body {
   z-index: 5;
 }
 
-#start-btn {
-  z-index: 4;
-  position: absolute;
-  top: 15%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  padding: 10px;
-  border-radius: 0 0 40% 40%;
-  background-color: black;
-  color: yellow;
-  animation: pulse 1s infinite ease-in-out;
-}
 
-#start-btn:hover {
-  cursor: pointer;
-}
 #start-btn-room{
    z-index: 4;
   position: absolute;
   top: 15%;
-  left: 40%;
+  left: 50%;
   transform: translate(-50%, -50%);
   padding: 10px;
   border-radius: 0 0 40% 40%;
@@ -74,20 +59,32 @@ body {
   }
 }
 
-#output {
-  position: absolute;
-  top: 8%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 50px;
-  color: black;
-  font-weight: bold;
-  letter-spacing: 1rem;
-  font-family: 'Rock Salt';
-}
+
 
 .hypogriffe , .sombrale , .basilic {
 
   opacity: 0;
 }
-
+.basilic {
+  height: 150px;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  
+}
+.hypogriffe {
+  height: 150px;
+  position: absolute;
+  top: 0%;
+  left: 80%;
+  opacity: 1;
+  
+}
+.sombrale {
+  height: 150px;
+  position: absolute;
+  top: 55%;
+  left: 80%;
+  opacity: 1;
+  
+}

@@ -17,7 +17,7 @@ var scl = 1;
 
 // Récupération des éléments HTML
 const outputDiv = document.getElementById('output');
-const startBtn = document.getElementById('start-btn');
+
 const startBtnRoom = document.getElementById('start-btn-room');
 
 // Vérification de la compatibilité de l'API Web Speech
@@ -29,48 +29,39 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
   // Événement déclenché lorsque la reconnaissance vocale détecte une nouvelle phrase
   recognition.onresult = (event) => {
     // je reset leur opacity afin de ne pas avoir plusieurs images qui s'affichent
-    document.querySelector(".hypogriffe").style.opacity = "0";
-    document.querySelector(".sombrale").style.opacity = "0";
-    document.querySelector(".basilic").style.opacity = "0";
+    
 
     const speechToText = event.results[0][0].transcript;
     //outputDiv.textContent = speechToText;
+    alert(speechToText);
     console.log(speechToText);
     if (speechToText.toLowerCase().includes("griff")) {
-      
       document.querySelector(".hypogriffe").style.opacity = "1";
     } else if (speechToText.toLowerCase().includes("somb")) {
-     
       document.querySelector(".sombrale").style.opacity = "1";
     } else if (speechToText.toLowerCase().includes("basili")) {
-     
       document.querySelector(".basilic").style.opacity = "1";
+    } else if (speechToText.toLowerCase().includes("rent")) {
+      document.querySelector(".basilic").style.opacity = "0";
+      document.querySelector(".sombrale").style.opacity = "0";
+      document.querySelector(".hypogriffe").style.opacity = "0";
     }
   };
   recognition.onend = () => { 
     startBtnRoom.disabled = false;
   };
 
-  // Événement déclenché lorsque la dictée est terminée
-  // recognition.onend = () => {
-  //   startBtn.disabled = false;
-  // };
 
   startBtnRoom.addEventListener('click', () => { 
     startBtnRoom.disabled = true;
     recognition.start();
   })
 
-  // // Événement déclenché lorsque l'utilisateur clique sur le bouton "Démarrer la dictée"
-  // startBtn.addEventListener('click', () => {
-  //   startBtn.disabled = true;
-  //   recognition.start();
-  // });
   
 } else {
   // Si l'API Web Speech n'est pas supportée par le navigateur
   outputDiv.textContent = "Désolé, la reconnaissance vocale n'est pas supportée par votre navigateur.";
-  startBtn.disabled = true;
+  
   startBtnRoom.disabled = true;
 }
 
