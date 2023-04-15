@@ -112,9 +112,6 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.boxShadow = "0 0 20px 10px rgba(0, 0, 0, 0.5)";
       charged.style.display = "block";
     }
-    else if (key.toLowerCase().includes('anima')) {
-      alert("ANIMALERIS");
-    }
   };
   recognition.onend = () => { 
     startBtnRoom.disabled = false;
@@ -241,8 +238,8 @@ var content = {
   6: {
     title: "Arcane spell",
     word: "R E V E L I O",
-    type: "Single target",
-    effect: "Makes the target visible",
+    type: "AOE",
+    effect: "Makes visible everything",
   },
   7: {
     title: "Light spell",
