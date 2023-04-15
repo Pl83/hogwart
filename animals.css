@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&family=Sedgwick+Ave+Display&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-image: url(img/petBackground.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: none;
+}
+
+#cursor {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-image: url(img/baton.png);
+  background-size: contain;
+  pointer-events: none;
+  z-index: 5;
+}
+
+
+#start-btn-room{
+   z-index: 4;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 0 0 40% 40%;
+  background-color: black;
+  color: yellow;
+  animation: pulse 1s infinite ease-in-out;
+
+}
+#start-btn-room:hover {
+  cursor: pointer;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+.hypogriffe , .sombrale , .basilic {
+
+  opacity: 0;
+}
+.basilic {
+  height: 150px;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  
+}
+.hypogriffe {
+  height: 150px;
+  position: absolute;
+  top: 0%;
+  left: 80%;
+  opacity: 0;
+  animation: vole 4s infinite linear paused;
+  
+}
+
+@keyframes vole {
+  0% {
+    top: 0%;
+    left: 80%;
+  }
+  25% {
+    top: 10%;
+    left: 60%;
+  }
+  50% {
+    top: 0%;
+    left: 40%;
+  }
+  100% {
+    top: 10%;
+    left: 10%;
+  }
+}
+.sombrale {
+  height: 150px;
+  position: absolute;
+  top: 55%;
+  left: 80%;
+  opacity: 0;
+  
+}
