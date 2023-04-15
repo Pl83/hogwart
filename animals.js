@@ -1,11 +1,10 @@
 
 window.addEventListener("mousemove", function(event) {
   var div = document.getElementById("cursor");
-  var charged = document.getElementById("charged");
+  
   div.style.left = event.clientX - 138 + "px";
   div.style.top = event.clientY - 130 +"px";
-  charged.style.left = event.clientX - 2 + "px";
-  charged.style.top = event.clientY + 2 +"px";
+  
 });
 
 var dummy = document.getElementById("dummy");
@@ -35,7 +34,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     //outputDiv.textContent = speechToText;
     alert(speechToText);
     console.log(speechToText);
-    if (speechToText.toLowerCase().includes("griff")) {
+    if (speechToText.toLowerCase().includes("gri")) {
       document.querySelector(".hypogriffe").style.opacity = "1";
     } else if (speechToText.toLowerCase().includes("somb")) {
       document.querySelector(".sombrale").style.opacity = "1";
@@ -46,6 +45,14 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       document.querySelector(".sombrale").style.opacity = "0";
       document.querySelector(".hypogriffe").style.opacity = "0";
     }
+    else if (speechToText.toLowerCase().includes("vol")) {
+      if (hypogriffe.style.opacity === "1") {
+        hypogriffe.style.animationPlayState = "running";
+        
+        
+
+      }
+    }
   };
   recognition.onend = () => { 
     startBtnRoom.disabled = false;
@@ -54,6 +61,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
 
   startBtnRoom.addEventListener('click', () => { 
     startBtnRoom.disabled = true;
+    
     recognition.start();
   })
 

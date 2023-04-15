@@ -77,14 +77,34 @@ body {
   position: absolute;
   top: 0%;
   left: 80%;
-  opacity: 1;
+  opacity: 0;
+  animation: vole 4s infinite linear paused;
   
+}
+
+@keyframes vole {
+  0% {
+    top: 0%;
+    left: 80%;
+  }
+  25% {
+    top: 10%;
+    left: 60%;
+  }
+  50% {
+    top: 0%;
+    left: 40%;
+  }
+  100% {
+    top: 10%;
+    left: 10%;
+  }
 }
 .sombrale {
   height: 150px;
   position: absolute;
   top: 55%;
   left: 80%;
-  opacity: 1;
+  opacity: 0;
   
 }
