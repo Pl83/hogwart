@@ -28,7 +28,9 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     const speechToText = event.results[0][0].transcript;
     //outputDiv.textContent = speechToText;
     console.log(speechToText);
-    if (speechToText.toLowerCase().includes('fla')) {
+    let key = speechToText.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    console.log("sans accent : " + " " + key);
+    if (key.toLowerCase().includes('fla')) {
       outputDiv.textContent = "INFLAMARE";
       outputDiv.style.color = "red";
       let charged = document.getElementById("charged");
@@ -37,7 +39,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.boxShadow = "0 0 20px 10px rgba(255, 0, 0, 0.5)";
       charged.style.display = "block";
     } 
-    else if (speechToText.toLowerCase().includes('dis')) {
+    else if (key.toLowerCase().includes('dis')) {
       outputDiv.textContent = "DISPELLIUM";
       outputDiv.style.color = "black";
       let inflamare = document.getElementById("inflamare");
@@ -50,7 +52,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       dummy.style.scale = scl;
       dummyimg.style.display = "block";
     } 
-    else if (speechToText.toLowerCase().includes('lumos')) {
+    else if (key.toLowerCase().includes('lumos')) {
       outputDiv.textContent = "LUMOS";
       outputDiv.style.color = "white";
       let charged = document.getElementById("charged");
@@ -59,7 +61,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.boxShadow = "0 0 20px 10px rgba(255, 255, 255, 0.5)";
       charged.style.display = "block";
     } 
-    else if (speechToText.toLowerCase().includes('leviosa')) {
+    else if (key.toLowerCase().includes('leviosa')) {
       outputDiv.textContent = "LEVIOSA";
       outputDiv.style.color = "purple";
       let charged = document.getElementById("charged");
@@ -68,7 +70,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.boxShadow = "0 0 20px 10px rgba(255, 0, 255, 0.5)";
       charged.style.display = "block";
     }
-    else if (speechToText.toLowerCase().includes('amplifi')) {
+    else if (key.toLowerCase().includes('amplifi')) {
       outputDiv.textContent = "AMPLIFICATUM";
       outputDiv.style.color = "green";
       let charged = document.getElementById("charged");
@@ -77,7 +79,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.boxShadow = "0 0 20px 10px rgba(0, 255, 0, 0.5)";
       charged.style.display = "block";
     } 
-    else if (speechToText.toLowerCase().includes('reduc')) {
+    else if (key.toLowerCase().includes('reduc')) {
       outputDiv.textContent = "REDUCTO";
       outputDiv.style.color = "blue";
       let charged = document.getElementById("charged");
@@ -85,7 +87,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.borderColor = "blue";
       charged.style.boxShadow = "0 0 20px 10px rgba(0, 0, 255, 0.5)";
       charged.style.display = "block";
-    } else if (speechToText.toLowerCase().includes('visi')){
+    } else if (key.toLowerCase().includes('visi')){
       outputDiv.textContent = "INVISIBILATO";
       outputDiv.style.color = "yellow";
       let charged = document.getElementById("charged");
@@ -93,7 +95,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.borderColor = "yellow";
       charged.style.boxShadow = "0 0 20px 10px rgba(255, 255, 0, 0.5)";
       charged.style.display = "block";
-    } else if (speechToText.toLowerCase().includes('revelio')){
+    } else if (key.toLowerCase().includes('rev')){
       outputDiv.textContent = "REVELIO";
       outputDiv.style.color = "orange";
       let charged = document.getElementById("charged");
@@ -101,7 +103,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.borderColor = "orange";
       charged.style.boxShadow = "0 0 20px 10px rgba(255, 165, 0, 0.5)";
       charged.style.display = "block";
-    } else if (speechToText.toLowerCase().includes('nox')){
+    } else if (key.toLowerCase().includes('nox')){
       outputDiv.textContent = "NOX";
       outputDiv.style.color = "black";
       let charged = document.getElementById("charged");
@@ -110,7 +112,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.boxShadow = "0 0 20px 10px rgba(0, 0, 0, 0.5)";
       charged.style.display = "block";
     }
-    else if (speechToText.toLowerCase().includes('anima')) {
+    else if (key.toLowerCase().includes('anima')) {
       alert("ANIMALERIS");
     }
   };
@@ -164,12 +166,7 @@ dummy.addEventListener("click", function(event) {
     dummyimg.style.display = "none";
     charged.style.display = "none";
     charged.style.backgroundColor = "transparent";
-  } else if (charged.style.display === "block" & charged.style.backgroundColor === "orange") {
-    let dummyimg = document.querySelector("#dummy > img");
-    dummyimg.style.display = "block";
-    charged.style.display = "none";
-    charged.style.backgroundColor = "transparent";
-  }
+  } 
 });
 
 
@@ -191,9 +188,13 @@ window.addEventListener("click", function(event) {
       nox.style.display = "none";
     }, 1500);
     charged.style.backgroundColor = "transparent";
+  } else if (charged.style.display === "block" && charged.style.backgroundColor === "orange") {
+    let dummyimg = document.querySelector("#dummy > img");
+    dummyimg.style.display = "block";
+    charged.style.display = "none";
+    charged.style.backgroundColor = "transparent";
   }
 });
-
 
 /* fin training ground */
 
@@ -260,6 +261,24 @@ var content = {
     word: " D I S P E L L I U M",
     type: "AOE",
     effect: "Dispell all spells",
+  },
+  10: {
+    title: "Invocation spell",
+    word: " I N V O C A R E : G R I F F O N",
+    type: "Summon",
+    effect: "Summon a griffon",
+  },
+  11: {
+    title: "Invocation spell",
+    word: " I N V O C A R E : D R A G O N",
+    type: "Summon",
+    effect: "Summon a dragon",
+  },
+  12: {
+    title: "Invocation spell",
+    word : " I N V O C A R E : P H O E N I X",
+    type: "Summon",
+    effect: "Summon a phoenix",
   }
 }
 
@@ -273,8 +292,6 @@ var content = {
         SpellNote.style.top = "50%";
         SpellNote.style.left = "50%";
         SpellNote.style.scale = "1";
-        SpellNote.style.width = "100%";
-        SpellNote.style.height = "100%";
         overlay.style.display = "block";
         past.style.display = "block";
         future.style.display = "block";
@@ -284,8 +301,6 @@ var content = {
       SpellNote.style.top = "85%";
       SpellNote.style.left = "85%";
       SpellNote.style.scale = "0.5";
-      SpellNote.style.width = "400px";
-      SpellNote.style.height = "500px";
       overlay.style.display = "none";
       past.style.display = "none";
       future.style.display = "none";
@@ -317,16 +332,19 @@ var content = {
   past.addEventListener("click", function(event) {
     if (page > 0) {
       page--;
-      SpellNoteText.animation = " turn 5s ease-in-out "
-      title.textContent = content[page].title;
-      word.textContent = content[page].word;
-      type.textContent = content[page].type;
-      effect.textContent = content[page].effect;
+      SpellNoteText.style.animationName = "turn1";
+      SpellNoteText.addEventListener("animationend", function() {
+        title.textContent = content[page].title;
+        word.textContent = content[page].word;
+        type.textContent = content[page].type;
+        effect.textContent = content[page].effect;
+        SpellNoteText.style.animationName = "turn2";
+      }, {once: true});
     }
   });
 
   future.addEventListener("click", function(event) {
-    if (page < 9) {
+    if (page < 11) {
       page++;
       SpellNoteText.style.animationName = "turn1";
       SpellNoteText.addEventListener("animationend", function() {
