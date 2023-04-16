@@ -30,9 +30,15 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    /* Dans votre fichier CSS */
+.highlight {
+  color: red;
+}
+
   </style>
   <div class="load">
     <h1></h1>
+    <h2 id="loading">Loading...</h2>
   </div>
   <h1>Hi</h1>
   <button onclick="loading()">Click me</button>
@@ -43,12 +49,17 @@
       1: "Kled military title is 'High Major Commodore of the First Legion Third Multiplication Double Admiral Artillery Vanguard Company' ",
       2: "Pinguin can't fly",
       3: "8% of the American population thinks that they can beat a Bear in a bare hand fight",
+      4: "The average person spends 6 months of their life waiting for a red light to turn green",
+      5: "35 cm...",
+      6: "Star wars >>>> Harry Potter",
+      7: "Deus Ex Machina",
+      8: "Bref j'ai plus d'idée a mettre",
     }
     
     function arrive(){
-      let random = Math.floor(Math.random() * 3) + 1;
+      let random = Math.floor(Math.random() * 8) + 1;
       document.querySelector('.load>h1').innerHTML = text[random];
-      
+
       setTimeout(function() {
         gsap.to('.load', {duration: 2, display: 'none', opacity: 0});
         document.querySelector('.load>h1').innerHTML = '';

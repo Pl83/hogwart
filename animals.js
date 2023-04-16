@@ -7,7 +7,6 @@ window.addEventListener("mousemove", function(event) {
   
 });
 
-var dummy = document.getElementById("dummy");
 const hypogriffe = document.querySelector(".hypogriffe");
 console.log(hypogriffe);
 
@@ -47,11 +46,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     }
     else if (speechToText.toLowerCase().includes("vol")) {
       if (hypogriffe.style.opacity === "1") {
-        hypogriffe.style.animationPlayState = "running";
-        
-        
-
-      }
+        hypogriffe.style.animationPlayState = "running"}
     }
   };
   recognition.onend = () => { 
@@ -73,19 +68,3 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
   startBtnRoom.disabled = true;
 }
 
-
-
-
-
-window.addEventListener("click", function(event) {
-  let charged = document.getElementById("charged");
-  if (charged.style.display === "block" && charged.style.backgroundColor === "white") {
-    let lumos = document.getElementById("lumos");
-    lumos.style.display = "block";
-    charged.style.display = "none";
-    this.setTimeout(function() {
-      lumos.style.display = "none";
-    }, 1500);
-    charged.style.backgroundColor = "transparent";
-  }
-});
