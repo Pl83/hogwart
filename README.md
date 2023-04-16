@@ -6,9 +6,7 @@ Tout au long de cette aventure vous pourrez trouver en bas à gauche la Page Mag
 vous rappellera les sorts que vous connaissez.
 
 ### Pour vous deplacez de page en page : 
-Cliquez sur le bouton pour lancer un sort ou une invocation et dite `teleportation prairie` ou `teleportation terrain`
-
-Ce mini-jeux comporte deux parties :
+Cliquez sur le bouton pour lancer un sort ou une invocation et dite `teleportation parc` ou `teleportation terrain`
 
 ## Le parc : 
 Un parc en plein aire dans le quel vous pourez invoquer différente bête magique et les commanders.
