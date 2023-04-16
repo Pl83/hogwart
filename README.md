@@ -11,6 +11,29 @@ Cliquez sur le bouton pour lancer un sort ou une invocation et dite `teleportati
 ## Le parc : 
 Un parc en plein aire dans le quel vous pourez invoquer différente bête magique et les commanders.
 
+### découvez les animaux cachée 
+il y a dans ce parc 3 animaux à trouver . Pour les voir il s'uffit de cliquer sur le bouton "animals " et de dire leur nom .
+
+### fonctionnement 
+Comment  est ce que le parc fonctionne . Tout les animaux sont caché avec une opacité de 0 dans le dom de la page . Ainsi grace à l'outils de reconnaisance vocale 
+je detecte si leur nom est prononcé . Si c'est le cas je change l'opacite de l'image afin de la faire apparaitre pour l'utilisateur .
+
+En ce qui concerne les annimation elle sont déja définis en css et atribuer au élément concernée . Ce pendant elle sont de base définit comme état en étatt de "paused" .
+
+> animation: vole 4s infinite linear paused; .
+
+Ainsi je peux  des que le mot clé de l'animation est lancé changer leur états pour "running" et le remettre a "paused" a la fin de lanimation . 
+
+```
+hypogriffe.style.animationPlayState = "running";
+     setTimeout(function () {
+      hypogriffe.style.animationPlayState = "paused";
+    }, 4000);
+  ``` 
+
+   
+        
+
 ## Le terrain d'entrainement : 
 Il s'agit d'une salle avec un mannequin d'entrainement sur lequel vous pourrez tester tous vos sorts.
 
