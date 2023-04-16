@@ -46,16 +46,16 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       document.querySelector(".hypogriffe").style.opacity = "0";
     }
     else if (speechToText.toLowerCase().includes("fly")) {
-      alert("vol test");
+     
       if (hypogriffe.style.opacity === "1") {
         hypogriffe.style.animationPlayState = "running";
-        // mettre un delay de 4 secondes
+        
         setTimeout(function () {
           hypogriffe.style.animationPlayState = "paused";
         }, 4000);
       }
     } else {
-      alert("pas de mot clé");
+      
     }
   };
   recognition.onend = () => { 
