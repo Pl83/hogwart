@@ -34,7 +34,7 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     //outputDiv.textContent = speechToText;
     alert(speechToText);
     console.log(speechToText);
-    if (speechToText.toLowerCase().includes("gri")) {
+    if (speechToText.toLowerCase().includes("hypo")) {
       document.querySelector(".hypogriffe").style.opacity = "1";
     } else if (speechToText.toLowerCase().includes("somb")) {
       document.querySelector(".sombrale").style.opacity = "1";
@@ -45,13 +45,17 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       document.querySelector(".sombrale").style.opacity = "0";
       document.querySelector(".hypogriffe").style.opacity = "0";
     }
-    else if (speechToText.toLowerCase().includes("vol")) {
+    else if (speechToText.toLowerCase().includes("fly")) {
+      alert("vol test");
       if (hypogriffe.style.opacity === "1") {
         hypogriffe.style.animationPlayState = "running";
-        
-        
-
+        // mettre un delay de 4 secondes
+        setTimeout(function () {
+          hypogriffe.style.animationPlayState = "paused";
+        }, 4000);
       }
+    } else {
+      alert("pas de mot clé");
     }
   };
   recognition.onend = () => { 
@@ -77,15 +81,3 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
 
 
 
-window.addEventListener("click", function(event) {
-  let charged = document.getElementById("charged");
-  if (charged.style.display === "block" && charged.style.backgroundColor === "white") {
-    let lumos = document.getElementById("lumos");
-    lumos.style.display = "block";
-    charged.style.display = "none";
-    this.setTimeout(function() {
-      lumos.style.display = "none";
-    }, 1500);
-    charged.style.backgroundColor = "transparent";
-  }
-});
