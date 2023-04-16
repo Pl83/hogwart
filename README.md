@@ -5,10 +5,11 @@ Ici vous pourrez lancer des sorts et des invocations grace à des commandes voca
 Tout au long de cette aventure vous pourrez trouver en bas à gauche la Page Magic qui 
 vous rappellera les sorts que vous connaissez.
 
-Ce mini-jeux comporte deux parties :
+### Pour vous deplacez de page en page : 
+Cliquez sur le bouton pour lancer un sort ou une invocation et dite `teleportation parc` ou `teleportation terrain`
 
-## Le Laboratoire : 
-Le laboratoire est la partie où vous pourrez invoquer et renvoyer des familiers grace à des sorts d'invocation.
+## Le parc : 
+Un parc en plein aire dans le quel vous pourez invoquer différente bête magique et les commanders.
 
 ## Le terrain d'entrainement : 
 Il s'agit d'une salle avec un mannequin d'entrainement sur lequel vous pourrez tester tous vos sorts.
