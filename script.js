@@ -1,3 +1,59 @@
+/* loading */ 
+var text = {
+  1: "Kled military title is 'High Major Commodore of the First Legion Third Multiplication Double Admiral Artillery Vanguard Company' ",
+  2: "Pinguin can't fly",
+  3: "8% of the American population thinks that they can beat a Bear in a bare hand fight",
+  4: "The average person spends 6 months of their life waiting for a red light to turn green",
+  5: "35 cm...",
+  6: "Star wars >>>> Harry Potter",
+  7: "Deus Ex Machina",
+  8: "Bref j'ai plus d'idée a mettre",
+  9: "the most important is the essential and this is the main",
+  10: "ouais c'est pas faux",
+}
+
+function arrive(){
+  let random = Math.floor(Math.random() * 8) + 1;
+  document.querySelector('.load>h1').innerHTML = text[random];
+
+let charIndex = 0;
+setInterval(function() {
+const loadingText = document.getElementById('loading');
+const text = loadingText.textContent;
+const newText = [];
+for (let i = 0; i < text.length; i++) {
+  const shouldHighlight = i === charIndex;
+  const charElement = document.createElement('span');
+  if (shouldHighlight) {
+    charElement.classList.add('highlight');
+  }
+  charElement.textContent = text[i];
+  charElement.style.fontSize = shouldHighlight ? '1.25em' : '1em';
+  newText.push(charElement);
+}
+loadingText.textContent = '';
+newText.forEach(function(charElement) {
+  loadingText.appendChild(charElement);
+});
+charIndex = (charIndex + 1) % text.length;
+}, 150);
+
+
+  setTimeout(function() {
+    gsap.to('.load', {duration: 2, display: 'none', opacity: 0});
+    document.querySelector('.load>h1').innerHTML = '';
+  }, 2000);
+}
+arrive();
+
+function loading() {
+  gsap.to('.load', {duration: 0.5, display: 'block', opacity: 1});
+  setTimeout(function() {
+  window.location.href = 'animals.html';
+  }, 500);
+}
+
+
 /* training groud */
 window.addEventListener("mousemove", function(event) {
   var div = document.getElementById("cursor");
@@ -111,6 +167,8 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
       charged.style.borderColor = "black";
       charged.style.boxShadow = "0 0 20px 10px rgba(0, 0, 0, 0.5)";
       charged.style.display = "block";
+    } else if (key.toLowerCase().includes('parc')){
+      loading()
     }
   };
   recognition.onend = () => { 
