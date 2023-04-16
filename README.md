@@ -5,7 +5,8 @@ Ici vous pourrez lancer des sorts et des invocations grace à des commandes voca
 Tout au long de cette aventure vous pourrez trouver en bas à gauche la Page Magic qui 
 vous rappellera les sorts que vous connaissez.
 
-### Pour vous deplacez de page en page, cliquez sur le bouton pour lancer un sort ou une invocation et dite `teleportation prairie` ou `teleportation terrain`
+### Pour vous deplacez de page en page : 
+Cliquez sur le bouton pour lancer un sort ou une invocation et dite `teleportation prairie` ou `teleportation terrain`
 
 Ce mini-jeux comporte deux parties :
 
