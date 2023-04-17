@@ -35,5 +35,7 @@ hypogriffe.style.animationPlayState = "running";
         
 
 ## Le terrain d'entrainement : 
-Il s'agit d'une salle avec un mannequin d'entrainement sur lequel vous pourrez tester tous vos sorts.
+Sur le terrain d'entrainement vous pourrez utiliser tous vos sorts. Cliquez sur le boutton "cast a spell" puis dite le nom du sort que vous voulez utiliser, votre baguette magique se chargera et vous pourez cliquez pour lancer le sort. 
+
+Cela fonction en javascript natif grâce a l'API Web Speech. Au clique sur un bouton on commence a écouter a travers le micro et sur certaint mots clée modifie des classes et styles css.
 
